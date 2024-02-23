@@ -270,6 +270,12 @@ if (process.cwd() !== __dirname) {
   process.exit(1)
 }
 
+let necessaryDirList = ["./Mods", "./Fix", "./Mods_disabled", "./web"]
+for (let d of necessaryDirList) {
+  if (!fs.existsSync(d)) {
+    fs.mkdir(d)
+  }
+}
 
 loadTags();
 refreshMods();
